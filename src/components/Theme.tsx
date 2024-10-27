@@ -1,25 +1,24 @@
 "use client";
-import StoreContext from "@/app/store/StoreContext";
+import StoreContext from "@/store/StoreContext";
 import Images from "@/assets/images/images";
 import Image from "next/image";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import "../components/styles/Theme.css";
 
 const Theme = () => {
   const store = useContext(StoreContext);
-  if (!store) throw new Error("wrap your app with provider");
+  if (!store) throw new Error("provider is missing in the app");
   const { theme, changeTheme } = store;
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     document.body.className = theme === "dark" ? "darkTheme" : "lightTheme";
-  });
+  }, [theme]);
 
   return (
     <div className="theme_image">
       <Image
         onClick={changeTheme}
-        src={theme === "dark" ? Images.sun : Images.moon}
+        src={theme === "dark" ? Images.moon : Images.sun}
         alt={theme === "dark" ? "light-mode" : "dark-mode"}
       />
     </div>

@@ -1,24 +1,87 @@
 "use client";
-import React, { useContext, useEffect, useState } from "react";
-import StoreContext from "@/app/store/StoreContext";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import StoreContext from "@/store/StoreContext";
 import Image from "next/image";
 import Images from "@/assets/images/images";
 import "./styles/FormInput.css";
 import Theme from "./Theme";
 
-const FormInput = () => {
+interface FormInputProps {
+  logStatus: "login" | "register";
+}
+
+const FormInput: React.FC<FormInputProps> = (props) => {
+  const store = useContext(StoreContext);
+  if (!store) throw new Error("provider is missing in the app");
+  const { loginUserFromAPI, user } = store;
+
+  let blogRef = useRef<any>({
+    userName: "",
+    email: null,
+    password: "",
+  });
+
+  const handleInputChange = (key: string, e: string) => {
+    blogRef.current = {
+      ...blogRef.current,
+      [key]: e,
+    };
+  };
+
+  const logStatusText = (login: string, register: string) => {
+    return props.logStatus === "login" ? login : register;
+  };
+
   return (
     <div className="formContainer">
-      {/* Theme Container */}
+      {/* Theme Component */}
       <Theme />
+
+      {/* User Form */}
       <form>
-        <label htmlFor="">UserName or Email</label>
-        <input type="text" required />
+        <label htmlFor="">
+          {logStatusText("UserName or Email", "UserName")}
+        </label>
+        <input
+          onChange={(e) => {
+            handleInputChange("userName", e.target.value);
+          }}
+          type="text"
+          required
+        />
+        {props.logStatus === "register" && (
+          <>
+            <label htmlFor="">Email</label>
+            <input
+              onChange={(e) => {
+                handleInputChange("email", e.target.value);
+              }}
+              type="text"
+              required
+            />
+          </>
+        )}
         <label htmlFor="">Password</label>
-        <input type="text" required />
-        <button className="submitBtn">login</button>
+        <input
+          onChange={(e) => handleInputChange("password", e.target.value)}
+          type="password"
+          required
+        />
+        {/* Submit Button */}
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            loginUserFromAPI(blogRef.current);
+          }}
+          className="submitBtn"
+        >
+          {logStatusText("Login", "Create New Account")}
+        </button>
         <p>
-          don't have an account? <a href="#">register</a>
+          {logStatusText("don't have an account? ", "already a member? ")}
+          <a href={`/${logStatusText("register", "login")}`}>
+            {logStatusText("register", "login")}
+          </a>
         </p>
       </form>
     </div>

@@ -13,7 +13,7 @@
 .formContainer label {
   display: block;
   font-size: 2rem;
-  color: var(--primaryColor);
+  /* color: var(--primaryColor); */
   margin: 25px 0;
 }
 
@@ -22,9 +22,7 @@
   width: 18rem;
   font-size: 20px;
   background: none;
-  border: 1px solid var(--primaryColor);
   outline: none;
-  color: var(--primaryColor);
   display: block;
 }
 
@@ -33,8 +31,6 @@
   padding: 20px;
   font-size: 20px;
   margin-top: 2rem;
-  background-color: var(--secondaryColor);
-  color: var(--primaryColor);
   border-radius: 6px;
   border: none;
 }
@@ -46,7 +42,3 @@
   color: var(--primaryColor);
 }
 
-.formContainer form a {
-  color: var(--secondaryColor);
-  font-weight: bolder;
-}

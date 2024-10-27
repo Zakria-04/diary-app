@@ -1,15 +1,61 @@
+:root {
+  --primaryColor: #fff7f7;
+  --secondaryColor: #133e87;
+  --lightThemeGrey: #373a40;
+}
+
 * {
   padding: 0;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* light theme */
 body.lightTheme {
   background: url("../assets//images/day-theme-img.jpg") no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
+
+body.lightTheme button {
+  background-color: var(--lightThemeGrey);
+  color: var(--primaryColor);
+}
+
+body.lightTheme label {
+  color: var(--lightThemeGrey);
+}
+
+body.lightTheme input {
+  border: 1px solid var(--lightThemeGrey);
+}
+
+body.lightTheme a {
+  color: var(--primaryColor);
+  font-weight: 900;
+}
+
+/* dark theme */
 body.darkTheme {
   background: url("../assets//images/night-theme-img.jpg") no-repeat;
   background-size: cover;
   background-attachment: fixed;
+}
+
+body.darkTheme label {
+  color: var(--primaryColor);
+}
+
+body.darkTheme input {
+  border: 1px solid var(--primaryColor);
+  color: var(--primaryColor);
+}
+
+body.darkTheme a {
+  color: var(--secondaryColor);
+}
+
+body.darkTheme button {
+  background-color: var(--secondaryColor);
+  color: var(--primaryColor);
 }
