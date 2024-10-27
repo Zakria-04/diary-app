@@ -1,0 +1,52 @@
+:root {
+  --primaryColor: #fff7f7;
+  --secondaryColor: #133e87;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.formContainer label {
+  display: block;
+  font-size: 2rem;
+  color: var(--primaryColor);
+  margin: 25px 0;
+}
+
+.formContainer input {
+  padding: 15px;
+  width: 18rem;
+  font-size: 20px;
+  background: none;
+  border: 1px solid var(--primaryColor);
+  outline: none;
+  color: var(--primaryColor);
+  display: block;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 20px;
+  font-size: 20px;
+  margin-top: 2rem;
+  background-color: var(--secondaryColor);
+  color: var(--primaryColor);
+  border-radius: 6px;
+  border: none;
+}
+
+.formContainer form p {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--primaryColor);
+}
+
+.formContainer form a {
+  color: var(--secondaryColor);
+  font-weight: bolder;
+}
