@@ -11,6 +11,7 @@ const StoreProvider = ({ children }: StoreProviderProps) => {
   const [theme, setTheme] = useState("dark");
   const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState(null);
+  const [diary, setDiary] = useState([]);
 
   const changeTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
@@ -18,6 +19,9 @@ const StoreProvider = ({ children }: StoreProviderProps) => {
 
   const loginUserFromAPI = (blog: any) => {
     setUser(blog);
+    if (user !== null) {
+      redirect("/home");
+    }
   };
 
   const providerValue = {
@@ -25,10 +29,12 @@ const StoreProvider = ({ children }: StoreProviderProps) => {
     theme,
     isLoading,
     user,
+    diary,
     // setter function
     setTheme,
     setIsLoading,
     setUser,
+    setDiary,
     // functions
     changeTheme,
     loginUserFromAPI,

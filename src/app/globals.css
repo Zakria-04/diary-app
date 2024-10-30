@@ -47,8 +47,8 @@ body.darkTheme label {
 }
 
 body.darkTheme input {
-  border: 1px solid var(--primaryColor);
-  color: var(--primaryColor);
+  /* border: 1px solid var(--primaryColor); */
+  /* color: var(--primaryColor); */
 }
 
 body.darkTheme a {

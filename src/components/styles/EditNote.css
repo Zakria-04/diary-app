@@ -1,0 +1,52 @@
+.editNoteContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(15px);
+}
+
+.borderContainer {
+  background-color: #eeeeee;
+  width: 25rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.borderContainer p {
+  font-size: 20px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.borderContainer input,
+textarea {
+  width: 100%;
+  padding: 0.6rem 0;
+  text-indent: 8px;
+  border: 1px solid #000;
+  outline-color: navy;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footerContainer {
+  text-align: right;
+  display: flex;
+  gap: 30;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+.footerContainer button {
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+}

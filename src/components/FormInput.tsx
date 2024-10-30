@@ -15,7 +15,7 @@ const FormInput: React.FC<FormInputProps> = (props) => {
   if (!store) throw new Error("provider is missing in the app");
   const { loginUserFromAPI, user } = store;
 
-  let blogRef = useRef<any>({
+  let blogRef = useRef<{}>({
     userName: "",
     email: null,
     password: "",
@@ -27,6 +27,9 @@ const FormInput: React.FC<FormInputProps> = (props) => {
       [key]: e,
     };
   };
+
+  console.log("user", user);
+  
 
   const logStatusText = (login: string, register: string) => {
     return props.logStatus === "login" ? login : register;
@@ -56,7 +59,7 @@ const FormInput: React.FC<FormInputProps> = (props) => {
               onChange={(e) => {
                 handleInputChange("email", e.target.value);
               }}
-              type="text"
+              type="email"
               required
             />
           </>

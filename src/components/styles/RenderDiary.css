@@ -1,0 +1,29 @@
+.RenderDiaryContainer {
+  padding: 1em;
+}
+
+.itemContainer {
+  background-color: #f4f6ff;
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 75%;
+  margin: auto;
+  margin-bottom: 3rem;
+}
+
+.itemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.itemContainer span {
+  font-weight: bold;
+}
+
+.itemContainer p {
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+  width: 100%;
+}
