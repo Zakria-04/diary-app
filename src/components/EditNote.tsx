@@ -21,7 +21,7 @@ const EditNote: React.FC<EditNoteProps> = ({
 }) => {
   const store = useContext(StoreContext);
   if (!store) throw new Error("provider is missing");
-  const { diary, setDiary } = store;
+  const { diary, setDiary, removeNoteFromDiary } = store;
   const [value, setValue] = useState(selectedItem.title);
   const [textInput, setTextInput] = useState(selectedItem.textArea);
 
@@ -30,10 +30,15 @@ const EditNote: React.FC<EditNoteProps> = ({
       (getID: DiaryType) => getID.id === selectedItem.id
     );
     if (getID) {
-      getID.title = value;
-      getID.textArea = textInput;
+      getID.title = value || getID.title;
+      getID.textArea = textInput || getID.textArea;
       setIsModalOpen(!isModalOpen);
     }
+  };
+
+  const removeNoteFromData = () => {
+    removeNoteFromDiary(selectedItem.id);
+    setIsModalOpen(!isModalOpen);
   };
 
   return (
@@ -41,7 +46,13 @@ const EditNote: React.FC<EditNoteProps> = ({
       <div className="borderContainer">
         <div className="headerContainer">
           <p>title</p>
-          <Image src={Images.delete} alt="delete" width={30} height={30} />
+          <Image
+            onClick={removeNoteFromData}
+            src={Images.delete}
+            alt="delete"
+            width={30}
+            height={30}
+          />
         </div>
         <input
           type="text"
@@ -54,8 +65,15 @@ const EditNote: React.FC<EditNoteProps> = ({
           onChange={(e) => setTextInput(e.currentTarget.value)}
         />
         <div className="footerContainer">
-          <button onClick={() => setIsModalOpen(!isModalOpen)}>cancel</button>
-          <button onClick={updateItem}>save</button>
+          <button
+            className="darkBtnTheme lightBtnTheme"
+            onClick={() => setIsModalOpen(!isModalOpen)}
+          >
+            cancel
+          </button>
+          <button className="darkBtnTheme lightBtnTheme" onClick={updateItem}>
+            save
+          </button>
         </div>
       </div>
     </div>

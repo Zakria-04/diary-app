@@ -1,29 +1,20 @@
 .NoteBtnModalContainer {
+  position: absolute;
+  top: 0;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
   width: 100%;
-  position: absolute;
-  /* z-index: 2; */
+  backdrop-filter: blur(10px);
+  z-index: 2;
 }
 
 .formContainer {
   background-color: rgba(186, 185, 185, 0.378);
-  backdrop-filter: blur(4px);
   padding: 3rem;
   border-radius: 1rem;
-}
-.formContainer::before {
-  /* content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(10, 10, 10, 0.768);
-  filter: blur(10px);
-  z-index: -1; */
+  width: 25rem;
 }
 
 .formContainer input,
@@ -35,8 +26,8 @@
   text-indent: 5px;
   padding: 10px 0;
   resize: vertical;
-  border-radius: 0.5rem;
-  outline-color: #133e87;
+  border-radius: 0.2rem;
+  border: none;
 }
 
 textarea {
@@ -50,8 +41,8 @@ textarea {
 }
 
 .modalControlBtn button {
-  padding: 1rem;
-  font-size: 15;
-  border-radius: 1rem;
+  padding: 0.8rem;
+  font-size: 15px;
+  border-radius: 0.3rem;
   border: none;
 }

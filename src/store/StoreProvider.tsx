@@ -1,26 +1,50 @@
 "use client";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import StoreContext from "./StoreContext";
 import { redirect } from "next/navigation";
+import { DiaryType } from "./types";
 
 interface StoreProviderProps {
   children: ReactNode;
 }
 
 const StoreProvider = ({ children }: StoreProviderProps) => {
-  const [theme, setTheme] = useState("dark");
-  const [isLoading, setIsLoading] = useState(false);
+  const [theme, setTheme] = useState<string>("light");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [user, setUser] = useState(null);
   const [diary, setDiary] = useState([]);
 
   const changeTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    const changeTheme = theme === "light" ? "dark" : "light";
+    setTheme(changeTheme);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("theme", changeTheme);
+    }
   };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedTheme = localStorage.getItem("theme") as string;
+      if (storedTheme) {
+        setTheme(storedTheme);
+      }
+    }
+  }, []);
 
   const loginUserFromAPI = (blog: any) => {
     setUser(blog);
     if (user !== null) {
       redirect("/home");
+    }
+  };
+
+  const removeNoteFromDiary = (id: number) => {
+    function checkID(data: DiaryType) {
+      return data.id === id;
+    }
+    const getIndex = diary.findIndex(checkID);
+    if (getIndex !== -1) {
+      diary.splice(getIndex, 1);
     }
   };
 
@@ -38,6 +62,7 @@ const StoreProvider = ({ children }: StoreProviderProps) => {
     // functions
     changeTheme,
     loginUserFromAPI,
+    removeNoteFromDiary,
   };
   return (
     <StoreContext.Provider value={providerValue}>

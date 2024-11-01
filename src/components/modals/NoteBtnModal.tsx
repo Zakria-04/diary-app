@@ -56,18 +56,25 @@ const NoteBtnModal: React.FC<NoteBtnModalProps> = ({
           <input
             type="text"
             placeholder="title"
-            style={{ color: "#000", fontSize: "20px" }}
+            className="darkInputTheme2 lightInputTheme2"
             onChange={(e) => handleFormTextChange("title", e.target.value)}
           />
           <textarea
             name=""
-            id=""
+            className="darkInputTheme2 lightInputTheme2"
             placeholder="Write Your Diary here"
             onChange={(e) => handleFormTextChange("textArea", e.target.value)}
           />
           <div className="modalControlBtn">
-            <button onClick={() => setIsModalOpen(!isModalOpen)}>cancel</button>
-            <button>add to my diary</button>
+            <button
+              className="lightBtnTheme darkBtnTheme"
+              onClick={() => setIsModalOpen(!isModalOpen)}
+            >
+              cancel
+            </button>
+            <button className="lightBtnTheme darkBtnTheme">
+              add to my diary
+            </button>
           </div>
         </form>
       )}

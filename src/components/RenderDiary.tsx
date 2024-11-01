@@ -14,8 +14,6 @@ const RenderDiary = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedItem, setSelectedItem] = useState<any>(null);
 
-  console.log("item  is a", selectedItem);
-
   const handleModalClick = (item: any) => {
     setSelectedItem(item);
     setIsModalOpen(!isModalOpen);

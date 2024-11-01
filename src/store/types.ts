@@ -1,5 +1,5 @@
 export type DiaryType = {
-  id: number
+  id: number;
   date: string;
   title: string;
   textArea: string;
@@ -12,9 +12,10 @@ export interface StoreContextType {
 
   // setter function
   setTheme: React.Dispatch<React.SetStateAction<string>>;
-  setDiary: any
+  setDiary: any;
 
   // functions
   changeTheme: () => void;
   loginUserFromAPI: (blog: any) => void;
+  removeNoteFromDiary: (id: number) => void;
 }

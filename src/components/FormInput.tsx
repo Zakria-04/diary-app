@@ -28,9 +28,6 @@ const FormInput: React.FC<FormInputProps> = (props) => {
     };
   };
 
-  console.log("user", user);
-  
-
   const logStatusText = (login: string, register: string) => {
     return props.logStatus === "login" ? login : register;
   };
@@ -50,6 +47,7 @@ const FormInput: React.FC<FormInputProps> = (props) => {
             handleInputChange("userName", e.target.value);
           }}
           type="text"
+          className="darkInputTheme1 lightInputTheme1"
           required
         />
         {props.logStatus === "register" && (
@@ -60,6 +58,7 @@ const FormInput: React.FC<FormInputProps> = (props) => {
                 handleInputChange("email", e.target.value);
               }}
               type="email"
+              className="darkInputTheme1 lightInputTheme1"
               required
             />
           </>
@@ -68,15 +67,16 @@ const FormInput: React.FC<FormInputProps> = (props) => {
         <input
           onChange={(e) => handleInputChange("password", e.target.value)}
           type="password"
+          className="darkInputTheme1 lightInputTheme1"
           required
         />
         {/* Submit Button */}
         <button
           onClick={(e) => {
-            e.preventDefault();
+            // e.preventDefault();
             loginUserFromAPI(blogRef.current);
           }}
-          className="submitBtn"
+          className="submitBtn lightBtnTheme darkBtnTheme"
         >
           {logStatusText("Login", "Create New Account")}
         </button>

@@ -10,14 +10,15 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* light theme */
+/*? light theme */
+
 body.lightTheme {
   background: url("../assets//images/day-theme-img.jpg") no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 
-body.lightTheme button {
+body.lightTheme .lightBtnTheme {
   background-color: var(--lightThemeGrey);
   color: var(--primaryColor);
 }
@@ -26,8 +27,13 @@ body.lightTheme label {
   color: var(--lightThemeGrey);
 }
 
-body.lightTheme input {
+body.lightTheme .lightInputTheme1 {
   border: 1px solid var(--lightThemeGrey);
+  color: var(--lightThemeGrey);
+}
+
+body.lightTheme .lightInputTheme2 {
+  outline-color: var(--lightThemeGrey);
 }
 
 body.lightTheme a {
@@ -35,7 +41,8 @@ body.lightTheme a {
   font-weight: 900;
 }
 
-/* dark theme */
+/*? dark theme */
+
 body.darkTheme {
   background: url("../assets//images/night-theme-img.jpg") no-repeat;
   background-size: cover;
@@ -46,16 +53,20 @@ body.darkTheme label {
   color: var(--primaryColor);
 }
 
-body.darkTheme input {
-  /* border: 1px solid var(--primaryColor); */
-  /* color: var(--primaryColor); */
+body.darkTheme .darkInputTheme1 {
+  border: 1px solid var(--primaryColor);
+  color: var(--primaryColor);
+}
+
+body.darkTheme .darkInputTheme2 {
+  outline-color: var(--secondaryColor);
 }
 
 body.darkTheme a {
   color: var(--secondaryColor);
 }
 
-body.darkTheme button {
+body.darkTheme .darkBtnTheme {
   background-color: var(--secondaryColor);
   color: var(--primaryColor);
 }

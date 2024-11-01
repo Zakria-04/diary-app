@@ -9,9 +9,10 @@ const Theme = () => {
   const store = useContext(StoreContext);
   if (!store) throw new Error("provider is missing in the app");
   const { theme, changeTheme } = store;
+  console.log("theme iss", theme);
 
   useEffect(() => {
-    document.body.className = theme === "dark" ? "darkTheme" : "lightTheme";
+    document.body.className = theme === "light" ? "lightTheme" : "darkTheme";
   }, [theme]);
 
   return (
@@ -19,7 +20,7 @@ const Theme = () => {
       <Image
         onClick={changeTheme}
         src={theme === "dark" ? Images.moon : Images.sun}
-        alt={theme === "dark" ? "light-mode" : "dark-mode"}
+        alt={theme === "dark" ? "dark-mode" : "light-mode"}
       />
     </div>
   );

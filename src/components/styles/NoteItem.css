@@ -1,15 +1,6 @@
-.noteItemContainer {
-  /* display: flex; */
-  /* justify-content: center;
-  align-items: center;
-  height: 100vh; */
-  /* background-color: rgba(21, 21, 21, 0.732); */
-
-}
-
 .createNoteBtn {
   padding: 1rem;
-  border: 1px solid #000;
+  border: none;
   border-radius: 15px;
   margin: 2rem 0 0 1rem;
 }
