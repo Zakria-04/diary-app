@@ -9,9 +9,9 @@ const Theme = () => {
   const store = useContext(StoreContext);
   if (!store) throw new Error("provider is missing in the app");
   const { theme, changeTheme } = store;
-  console.log("theme iss", theme);
 
   useEffect(() => {
+    // change the color theme based on body className
     document.body.className = theme === "light" ? "lightTheme" : "darkTheme";
   }, [theme]);
 

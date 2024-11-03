@@ -10,7 +10,7 @@ interface EditNoteProps {
   isModalOpen: boolean;
   setIsModalOpen: React.Dispatch<SetStateAction<boolean>>;
   selectedItem: DiaryType;
-  setSelectedItem: any;
+  setSelectedItem: React.Dispatch<SetStateAction<DiaryType | null>>;
 }
 
 const EditNote: React.FC<EditNoteProps> = ({
@@ -21,7 +21,7 @@ const EditNote: React.FC<EditNoteProps> = ({
 }) => {
   const store = useContext(StoreContext);
   if (!store) throw new Error("provider is missing");
-  const { diary, setDiary, removeNoteFromDiary } = store;
+  const { diary, removeNoteFromDiary } = store;
   const [value, setValue] = useState(selectedItem.title);
   const [textInput, setTextInput] = useState(selectedItem.textArea);
 

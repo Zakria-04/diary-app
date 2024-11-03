@@ -21,13 +21,15 @@ const FormInput: React.FC<FormInputProps> = (props) => {
     password: "",
   });
 
+  // change input text and save it inside the blogRef
   const handleInputChange = (key: string, e: string) => {
     blogRef.current = {
-      ...blogRef.current,
+      ...blogRef.current, 
       [key]: e,
     };
   };
 
+  // check the log status and return message
   const logStatusText = (login: string, register: string) => {
     return props.logStatus === "login" ? login : register;
   };

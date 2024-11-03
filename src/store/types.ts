@@ -1,3 +1,5 @@
+import React, { SetStateAction } from "react";
+
 export type DiaryType = {
   id: number;
   date: string;
@@ -12,7 +14,7 @@ export interface StoreContextType {
 
   // setter function
   setTheme: React.Dispatch<React.SetStateAction<string>>;
-  setDiary: any;
+  setDiary: React.Dispatch<SetStateAction<DiaryType[]>>;
 
   // functions
   changeTheme: () => void;

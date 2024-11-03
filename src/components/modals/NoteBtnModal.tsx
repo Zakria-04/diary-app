@@ -33,6 +33,7 @@ const NoteBtnModal: React.FC<NoteBtnModalProps> = ({
     textArea: "",
   });
 
+  // handle inputs text change and save it inside formRef
   const handleFormTextChange = (key: string, e: string) => {
     formRef.current = {
       ...formRef.current,
@@ -41,6 +42,7 @@ const NoteBtnModal: React.FC<NoteBtnModalProps> = ({
     };
   };
 
+  // submit form data 
   const handleSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const diaryProvider = diary;
