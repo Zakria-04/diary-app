@@ -1,5 +1,20 @@
 import React, { SetStateAction } from "react";
 
+export type FormType = {
+  userName: string;
+  email?: string | null;
+  userPass: string;
+};
+
+export type UserDataType = {
+  _id: string;
+  userName: string;
+  userPass: string;
+  email: string;
+  userDiaryData: DiaryType[];
+  __v: number;
+};
+
 export type DiaryType = {
   id: number;
   date: string;
@@ -9,15 +24,17 @@ export type DiaryType = {
 export interface StoreContextType {
   // state
   theme: string;
-  user: string | null;
+  user: UserDataType | null;
   diary: DiaryType[];
 
   // setter function
   setTheme: React.Dispatch<React.SetStateAction<string>>;
   setDiary: React.Dispatch<SetStateAction<DiaryType[]>>;
-
+  setUser: React.Dispatch<SetStateAction<UserDataType | null>>;
   // functions
   changeTheme: () => void;
-  loginUserFromAPI: (blog: any) => void;
+  isServerLive: () => void;
+  createNewUserFromAPI: (blog: any) => Promise<void>;
+  loginUserFromAPI: (blog: any) => Promise<void>;
   removeNoteFromDiary: (id: number) => void;
 }
